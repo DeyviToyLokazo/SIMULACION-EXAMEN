@@ -1,0 +1,22 @@
+services:
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27020:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: 260800
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - TDFINAL
+
+volumes:
+  mongo-data:
+    driver: local
+
+networks:
+  TDFINAL:
+    driver: bridge  
+  default:
+    driver: bridge
